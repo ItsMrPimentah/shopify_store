@@ -172,4 +172,4 @@ abstract class BaseAPI<T> {
 
 ![Camada Modelo](screenshots/camada_modelo.png)
 
-Camada de modelo, reponsavel por entregar os dados modelados onde for necessário, deste forma sabemos de que dado se trata e como usa-lo.
+Camada de modelo, reponsavel modelar e entregar os dados consumidos por API, deste modo temos um espelho da informação em forma de objectos, facilitando assim a distribuição dessa informação onde necessária.
