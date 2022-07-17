@@ -22,8 +22,8 @@ String storeName = "nomeDaLoja";
 
 Um Widget Statefull, responsavel por apresentar as tags unicas inseridas em cada produto e poder navegar entre elas, dado os conceitos de UX, decidi combinar as telas podendo assim, visualizar os produtos em cada tag na mesma tela.
 
-<p align="center">
-<img src="screenshots/ezgif.com-gif-maker.gif" width="350"/>
+<p align="left">
+<img src="screenshots/tag_screen.png" width="300"/>
 </p>
 
 
@@ -98,7 +98,7 @@ Um Widget Statefull, responsavel por apresentar as tags unicas inseridas em cada
 Stateless Widget Page, responsavel por apresentar detalhes sobre o produto selecionado na lista de produtos, recebe o produto selecionado, por parametro do seu constructor.
 
 <p align="left">
-<img src="screenshots/product_card_page.png" width="250"/>
+<img src="screenshots/product_card_page.png" width="300"/>
 </p>
 
 
@@ -182,6 +182,8 @@ abstract class BaseAPI<T> {
 
 ## Camada "Models"
 
-![Camada Modelo](screenshots/camada_modelo.png)
+<p align="left">
+<img src="screenshots/camada_modelo.png" width="300"/>
+</p>
 
 Camada de modelo, reponsavel modelar e entregar os dados consumidos por API, deste modo temos um espelho da informação em forma de objectos, facilitando assim a distribuição dessa informação onde necessária.
