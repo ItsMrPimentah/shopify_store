@@ -89,7 +89,7 @@ Um Widget Statefull, responsavel por apresentar as tags unicas inseridas em cada
 
 Stateless Widget Page, responsavel por apresentar detalhes sobre o produto selecionado na lista de produtos, recebe o produto selecionado, por parametro do seu constructor.
 
-![Product_Page](screenshots/Simulator Screen Shot - iPhone 13 - 2022-07-17 at 16.16.09.png)
+![Product_Page](screenshots/product_card_page.png)
 
 ```Dart
 
@@ -169,6 +169,6 @@ abstract class BaseAPI<T> {
 
 ## Camada "Models"
 
-![](screenshots/Captura de ecrã 2022-07-17, às 15.38.17.png)
+![](screenshots/screenshots/camada_modelo.png)
 
 Camada de modelo, reponsavel por entregar os dados modelados onde for necessário, deste forma sabemos de que dado se trata e como usa-lo.
