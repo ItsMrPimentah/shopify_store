@@ -118,7 +118,8 @@ Widget build(BuildContext context) {
 
 - Widget Product Card:
 
-Widget adjacente para apresentação do produto e seus detalhes, como preço, imagem, e quantidade em Stock.
+Widget criado para apresentação do produto e seus detalhes, como preço, imagem, e quantidade em Stock.
+Com base na reutilização de codigo, o mesmo widget apresenta maior complexidade, desta forma numa decisão a longo prazo, com maior facilidade de manutenção o mesmo card é componentizado, facilitando desta forma futuras implementações, remoção ou adaptação em caso de necessidade em uma pagina diferente.
 
 ## Camada "Service"
 
@@ -169,6 +170,6 @@ abstract class BaseAPI<T> {
 
 ## Camada "Models"
 
-![](screenshots/screenshots/camada_modelo.png)
+![Camada Modelo](screenshots/camada_modelo.png)
 
 Camada de modelo, reponsavel por entregar os dados modelados onde for necessário, deste forma sabemos de que dado se trata e como usa-lo.
