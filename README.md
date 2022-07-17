@@ -1,6 +1,10 @@
 # Shopify Challenge
 
 Challenge consumo da api de uma loja shopify, apresentando as tags e os produtos que correspondem a cada tag.
+
+<p align="center">
+<img src="screenshots/ezgif.com-gif-maker.gif" width="500"/>
+</p>
 ![](screenshots/ezgif.com-gif-maker.gif)
 
 ## Configuração
