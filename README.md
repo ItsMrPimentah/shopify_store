@@ -3,9 +3,9 @@
 Challenge consumo da api de uma loja shopify, apresentando as tags e os produtos que correspondem a cada tag.
 
 <p align="center">
-<img src="screenshots/ezgif.com-gif-maker.gif" width="500"/>
+<img src="screenshots/ezgif.com-gif-maker.gif" width="350"/>
 </p>
-![](screenshots/ezgif.com-gif-maker.gif)
+
 
 ## Configuração
 
@@ -21,7 +21,11 @@ String storeName = "nomeDaLoja";
 ### Tags Page
 
 Um Widget Statefull, responsavel por apresentar as tags unicas inseridas em cada produto e poder navegar entre elas, dado os conceitos de UX, decidi combinar as telas podendo assim, visualizar os produtos em cada tag na mesma tela.
-![](screenshots/tag_screen.png)
+
+<p align="center">
+<img src="screenshots/ezgif.com-gif-maker.gif" width="350"/>
+</p>
+
 
 - Variaveis
 
@@ -93,7 +97,11 @@ Um Widget Statefull, responsavel por apresentar as tags unicas inseridas em cada
 
 Stateless Widget Page, responsavel por apresentar detalhes sobre o produto selecionado na lista de produtos, recebe o produto selecionado, por parametro do seu constructor.
 
-![Product_Page](screenshots/product_card_page.png)
+<p align="left">
+<img src="screenshots/product_card_page.png" width="250"/>
+</p>
+
+
 
 ```Dart
 
