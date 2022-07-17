@@ -3,6 +3,15 @@
 Challenge consumo da api de uma loja shopify, apresentando as tags e os produtos que correspondem a cada tag.
 ![](screenshots/ezgif.com-gif-maker.gif)
 
+## Configuração
+
+Antes de rodar o projecto, será necessário substituir os valores das variaveis, no ficheiro domain -> services.dart.
+
+```Dart
+String accessToken = "meuTokenDeAcesso";
+String storeName = "nomeDaLoja";
+```
+
 ## Pages
 
 ### Tags Page
@@ -37,7 +46,7 @@ Um Widget Statefull, responsavel por apresentar as tags unicas inseridas em cada
 
     //Ao inicializar o cliclo de vida do widget, a requisição e efectuada por REST Api
     // tratando-se de um widget com estado, faço o uso do setState para assinar novos valores as variaveis.
-  ApiRequest().get(accessToken: "myAccessToken").then(
+  ApiRequest().get().then(
       (value) {
         // Value: Recebe a lista completa de produtos
         setState(() {
@@ -77,3 +86,89 @@ Um Widget Statefull, responsavel por apresentar as tags unicas inseridas em cada
 ```
 
 ### Product Page
+
+Stateless Widget Page, responsavel por apresentar detalhes sobre o produto selecionado na lista de produtos, recebe o produto selecionado, por parametro do seu constructor.
+
+![Product_Page](screenshots/Simulator Screen Shot - iPhone 13 - 2022-07-17 at 16.16.09.png)
+
+```Dart
+
+Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.grey[200],
+        appBar: AppBar(
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          backgroundColor: Colors.white,
+          title: const Text(
+            "Product Details",
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+        body: ProductCard(product: product!));
+  }
+}
+```
+
+- Widget Product Card:
+
+Widget adjacente para apresentação do produto e seus detalhes, como preço, imagem, e quantidade em Stock.
+
+## Camada "Service"
+
+````Dart
+
+//Class responsavel pelas requisições, poderia ter o nome da sua implementação, baseada na implementação da interface
+//BaseAPI, ou seja essa mesma class possue apenas o get que retorna uma lista de produtos, desta forma a classe podia
+//ser chamada de "ProductService" implementando BaseAPI<Product>.
+
+class ApiRequest implements BaseAPI {
+
+    //Configuração Inicial, Token de accesso, e o nome da loja.
+    // Pacote Dio, para auxilio nas requisições HTTP.
+  String accessToken = "myaccessToken";
+  static String storeName = "mystore";
+  Dio dio = Dio(
+    BaseOptions(
+      baseUrl: 'https://$storeName.myshopify.com/admin/',
+      connectTimeout: 10000,
+      receiveTimeout: 3000,
+    ),
+  );
+
+    // Função assincorna, para pegar a lista de todos os produtos disponiveis na loja.
+  @override
+  Future<List<Product>> get({Map<String, String>? headers}) async {
+    Response response = await dio.get("products.json?access_token=$accessToken",
+        options: Options(headers: headers));
+    List<Product> products = response.data['products']
+        .map<Product>((product) => Product.fromJson(product))
+        .toList();
+
+    return products;
+  }
+}
+
+// Service Helper: Interface abstracta para inplementação do REST CRUD aguardando o Tipo ,
+// dessa forma podemos segmentar e ter requisições especificas invês de generalizadas.
+abstract class BaseAPI<T> {
+  Future<T> get({Map<String, String> headers});
+}
+
+
+```
+
+
+````
+
+## Camada "Models"
+
+![](screenshots/Captura de ecrã 2022-07-17, às 15.38.17.png)
+
+Camada de modelo, reponsavel por entregar os dados modelados onde for necessário, deste forma sabemos de que dado se trata e como usa-lo.

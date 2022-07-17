@@ -17,8 +17,6 @@ class ApiRequest implements BaseAPI {
   Future<List<Product>> get({Map<String, String>? headers}) async {
     Response response = await dio.get("products.json?access_token=$accessToken",
         options: Options(headers: headers));
-
-    print(response.requestOptions.baseUrl);
     List<Product> products = response.data['products']
         .map<Product>((product) => Product.fromJson(product))
         .toList();

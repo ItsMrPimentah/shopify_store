@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopify_store/domain/services.dart';
 import 'package:shopify_store/models/products_model.dart';
-import 'package:shopify_store/view/product_list_page.dart';
+import 'package:shopify_store/view/widgets/product_list.dart';
 
 class TagsPage extends StatefulWidget {
   const TagsPage({Key? key, required this.title}) : super(key: key);
